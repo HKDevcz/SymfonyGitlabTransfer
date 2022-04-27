@@ -17,6 +17,13 @@ framework:
     php_errors:
         log: true
 
+    http_client:
+        scoped_clients:
+            gitlab.client:
+                base_uri: 'https://gitlab.on-idle.com/api/v4/'
+                headers:
+                    Authorization: 'Bearer %env(GITLAB_PRIVATE_TOKEN)%'
+
 when@test:
     framework:
         test: true
