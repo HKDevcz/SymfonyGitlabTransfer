@@ -92,9 +92,6 @@ class ImportCommand extends Command
             if ($response->getStatusCode() === 201) {
                 $io->success(sprintf('Project %s is scheduled for import.', $project['name_with_namespace']));
             }
-
-            // trying to avoid 429 too many requests
-            sleep(10);
         }
 
         $io->success('DONE');
